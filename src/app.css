@@ -65,7 +65,9 @@
 	--radius-sm: 8px;
 	--radius-md: 16px;
 	--radius-lg: 28px;
-	--radius-xl: 56px;
+	/* The design's derived radii: tags at 0.75x md, big panels at 2x lg. */
+	--radius-tag: 12px;
+	--radius-panel: 56px;
 
 	/* Elevation, tuned to the warm ground */
 	--shadow-sm: 0 1px 2px color-mix(in srgb, #2e2b25 14%, transparent);
