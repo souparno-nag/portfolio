@@ -1,11 +1,14 @@
 export const site = {
 	name: 'Souparno Nag',
-	role: 'AI / Full-Stack Engineer · India',
-	tagline: 'Building intelligent systems, from RAG chatbots to cloud-native platforms.',
+	role: 'Backend and applied AI · Chennai, India',
+	tagline: 'Distributed systems that hold under load, and retrieval that returns the right passage.',
 	intro:
-		'Computer Science at VIT, currently a software engineering intern at NatWest Group — building a voice layer for enterprise AI and researching privacy-preserving on-premise models. I ship across the stack: LangChain and LangGraph agents, Spring Boot and Go services, Kafka pipelines, Kubernetes.',
+		'Final-year computer science at VIT Chennai. I spent last summer at NatWest Group building a voice layer over an internal AI system and researching on-premise models for data that can’t leave the building. Most of my own work is backend: a distributed cache in Go, a Kafka-choreographed marketplace, retrieval pipelines judged on whether they return the right passage rather than a plausible one.',
+	// Shown in search results and link previews.
 	description:
-		'Portfolio of Souparno Nag — AI and full-stack engineer working on RAG systems, distributed services and cloud-native platforms.',
+		'Souparno Nag — final-year computer science student at VIT Chennai working on distributed systems and applied AI. Previously a software engineering intern at NatWest Group.',
+	seoTitle: 'Souparno Nag — Backend and applied AI',
+	jobTitle: 'Software Engineer',
 	url: 'https://souparno-nag.netlify.app',
 	email: 'souparnonag2004@gmail.com',
 	phone: { display: '+91 82402 04932', href: '+918240204932' },

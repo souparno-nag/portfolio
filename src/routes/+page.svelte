@@ -13,18 +13,18 @@
 		name: site.name,
 		email: `mailto:${site.email}`,
 		url: site.url,
-		jobTitle: 'AI / Full-Stack Engineer',
+		jobTitle: site.jobTitle,
 		sameAs: [site.links.github, site.links.linkedin, site.links.leetcode],
 		alumniOf: { '@type': 'CollegeOrUniversity', name: 'Vellore Institute of Technology' }
 	};
 </script>
 
 <svelte:head>
-	<title>{site.name} — AI / Full-Stack Engineer</title>
+	<title>{site.seoTitle}</title>
 	<meta name="description" content={site.description} />
 	<link rel="canonical" href={site.url} />
 	<meta property="og:type" content="website" />
-	<meta property="og:title" content="{site.name} — AI / Full-Stack Engineer" />
+	<meta property="og:title" content={site.seoTitle} />
 	<meta property="og:description" content={site.description} />
 	<meta property="og:url" content={site.url} />
 	<meta name="twitter:card" content="summary" />
