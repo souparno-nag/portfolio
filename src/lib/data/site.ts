@@ -1,7 +1,7 @@
 export const site = {
 	name: 'Souparno Nag',
 	role: 'Backend and applied AI · India',
-	tagline: 'Distributed systems that hold under load, and retrieval that returns the right passage.',
+	tagline: 'I build backend systems, and the AI that sits on top of them.',
 	intro:
 		'Final-year computer science at VIT Chennai. I spent last summer at NatWest Group building a voice layer over an internal AI system and researching on-premise models for data that can’t leave the building. Most of my own work is backend: a distributed cache in Go, a Kafka-choreographed marketplace, retrieval pipelines judged on whether they return the right passage rather than a plausible one.',
 	// Shown in search results and link previews.
