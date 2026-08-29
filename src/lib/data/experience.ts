@@ -13,9 +13,9 @@ export const experience: Role[] = [
 		location: 'Bangalore, India',
 		tone: 'accent',
 		points: [
-			'Developing a voice-enabled layer for an internal AI application built with Spring AI, enabling natural language interactions with enterprise banking systems.',
-			'Researching small language models and federated learning for privacy-preserving, on-premise AI in HR and People workflows.',
-			'Creating a central CI/CD repository of GitLab Actions templates across multiple languages, standardizing build and test pipelines.'
+			'Built a voice-enabled layer for an internal AI application on Spring AI, letting staff query enterprise banking systems in natural language.',
+			'Researched small language models and federated learning for privacy-preserving, on-premise AI in HR and People workflows.',
+			'Created a central CI/CD repository of GitLab Actions templates across several languages, standardizing build and test pipelines for other teams.'
 		]
 	},
 	{
