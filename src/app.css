@@ -1,0 +1,119 @@
+@import 'tailwindcss';
+
+/*
+ * Organic design system — ported to Tailwind v4 theme tokens.
+ *
+ * Every value below comes from the exported design system's styles.css, so the
+ * utilities Tailwind generates (bg-accent-100, rounded-lg, shadow-md, p-3 …)
+ * resolve to exactly the design's palette, radii, elevation and 1.10× density.
+ * The design system calls the sage role "accent-2"; here it is `accent2`.
+ */
+@theme {
+	/* Roles */
+	--color-bg: #f5ead8;
+	--color-surface: #ebddc5;
+	--color-ink: #201e1d;
+	--color-accent: #c67139;
+	--color-accent2: #7a8a5e;
+
+	/* Neutral ramp */
+	--color-neutral-100: #f9f4ed;
+	--color-neutral-200: #eee7db;
+	--color-neutral-300: #dcd3c4;
+	--color-neutral-400: #c0b6a5;
+	--color-neutral-500: #a19786;
+	--color-neutral-600: #82796a;
+	--color-neutral-700: #645c50;
+	--color-neutral-800: #474238;
+	--color-neutral-900: #2e2b25;
+
+	/* Terracotta ramp */
+	--color-accent-100: #fff2eb;
+	--color-accent-200: #ffe1d0;
+	--color-accent-300: #ffc6a5;
+	--color-accent-400: #f6a06b;
+	--color-accent-500: #d67f48;
+	--color-accent-600: #b2622d;
+	--color-accent-700: #8c491a;
+	--color-accent-800: #643312;
+	--color-accent-900: #402310;
+
+	/* Sage ramp (the design system's accent-2) */
+	--color-accent2-100: #f0fae1;
+	--color-accent2-200: #e1eecc;
+	--color-accent2-300: #ccdbb2;
+	--color-accent2-400: #aebf92;
+	--color-accent2-500: #8fa073;
+	--color-accent2-600: #728157;
+	--color-accent2-700: #56633f;
+	--color-accent2-800: #3d472b;
+	--color-accent2-900: #272e1b;
+
+	/* Type */
+	--font-heading: 'Caprasimo', system-ui, sans-serif;
+	--font-body: 'Figtree', system-ui, sans-serif;
+
+	/*
+	 * Density: the design system runs a 1.10× scale off a 4px base, so its
+	 * --space-1…8 are 4.4 / 8.8 / 13.2 / 17.6 / 26.4 / 35.2px. Setting the
+	 * Tailwind spacing base to 4.4px reproduces that scale exactly, which means
+	 * p-3 really is the design's --space-3.
+	 */
+	--spacing: 4.4px;
+
+	/* Radii */
+	--radius-sm: 8px;
+	--radius-md: 16px;
+	--radius-lg: 28px;
+	--radius-xl: 56px;
+
+	/* Elevation, tuned to the warm ground */
+	--shadow-sm: 0 1px 2px color-mix(in srgb, #2e2b25 14%, transparent);
+	--shadow-md: 0 3px 10px color-mix(in srgb, #2e2b25 16%, transparent);
+	--shadow-lg: 0 12px 32px color-mix(in srgb, #2e2b25 22%, transparent);
+}
+
+@layer base {
+	:root {
+		/* The design's vertical rhythm and page gutter. */
+		--leading: 28px;
+		--edge: clamp(20px, 5vw, 72px);
+		--divider: color-mix(in srgb, #201e1d 16%, transparent);
+	}
+
+	html {
+		scroll-behavior: smooth;
+	}
+
+	body {
+		background: var(--color-bg);
+		color: var(--color-ink);
+		font-family: var(--font-body);
+		text-wrap: pretty;
+		overflow-x: clip;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4 {
+		font-family: var(--font-heading);
+		font-weight: 400;
+	}
+
+	/* Themed focus ring — never the browser default. */
+	:focus-visible {
+		outline: 2px solid var(--color-accent);
+		outline-offset: 2px;
+	}
+
+	::selection {
+		background: var(--color-accent-200);
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		html {
+			scroll-behavior: auto;
+		}
+	}
+}
