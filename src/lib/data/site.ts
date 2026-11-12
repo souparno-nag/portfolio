@@ -2,6 +2,12 @@ export const site = {
 	name: 'Souparno Nag',
 	role: 'Backend and applied AI · India',
 	tagline: 'I build backend systems, and the AI that sits on top of them.',
+	// The stamp on the hero card.
+	availability: 'Open to SDE and AI/ML roles',
+	// Listed at the foot of the hero card, the way a catalogue card lists subjects.
+	subjects: ['Distributed systems', 'Applied AI', 'Backend engineering'],
+	// Dewey class for distributed processing, plus the surname.
+	callNumber: '004.36 NAG',
 	intro:
 		'Final-year computer science at VIT Chennai. I spent last summer at NatWest Group building a voice layer over an internal AI system and researching on-premise models for data that can’t leave the building. Most of my own work is backend: a distributed cache in Go, a Kafka-choreographed marketplace, retrieval pipelines judged on whether they return the right passage rather than a plausible one.',
 	// Shown in search results and link previews.

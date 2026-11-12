@@ -1,6 +1,10 @@
 export type Role = {
 	period: string;
 	title: string;
+	/** The employer, set as the card's heading. */
+	org: string;
+	/** The job title on its own, without the employer. */
+	position: string;
 	location: string;
 	tone: 'accent' | 'accent2';
 	points: string[];
@@ -10,6 +14,8 @@ export const experience: Role[] = [
 	{
 		period: 'Jun — Aug 2026',
 		title: 'Software Engineering Intern · NatWest Group',
+		org: 'NatWest Group',
+		position: 'Software Engineering Intern',
 		location: 'Bangalore, India',
 		tone: 'accent',
 		points: [
@@ -21,6 +27,8 @@ export const experience: Role[] = [
 	{
 		period: 'Dec 2025 — Feb 2026',
 		title: 'Frontend & UI Development Intern · Mirai',
+		org: 'Mirai',
+		position: 'Frontend & UI Development Intern',
 		location: 'Chennai, India',
 		tone: 'accent2',
 		points: [
