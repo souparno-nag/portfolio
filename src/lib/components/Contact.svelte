@@ -81,7 +81,7 @@
 		rotate: 0.5deg;
 	}
 
-	h3 {
+	.slip h3 {
 		display: flex;
 		justify-content: space-between;
 		align-items: baseline;
@@ -93,7 +93,7 @@
 		font-weight: 700;
 	}
 
-	h3 span {
+	.slip h3 span {
 		color: var(--ink-dim);
 		font-family: var(--type);
 		font-size: 0.85rem;
