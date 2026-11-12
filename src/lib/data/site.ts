@@ -9,7 +9,7 @@ export const site = {
 	// Dewey class for distributed processing, plus the surname.
 	callNumber: '004.36 NAG',
 	intro:
-		'Final-year computer science at VIT Chennai. I spent last summer at NatWest Group building a voice layer over an internal AI system and researching on-premise models for data that can’t leave the building. Most of my own work is backend: a distributed cache in Go, a Kafka-choreographed marketplace, retrieval pipelines judged on whether they return the right passage rather than a plausible one.',
+		'I’m in my final year of computer science at VIT Chennai. Last summer I interned at NatWest Group, where I built a voice layer for an internal AI system and looked into running models on-premise, for data that can’t leave the building. On my own time I mostly build backend things. So far that’s a distributed cache in Go, a ticket marketplace that runs on Kafka, and a few retrieval pipelines where I cared most about getting the right passage back.',
 	// Shown in search results and link previews.
 	description:
 		'Souparno Nag — final-year computer science student at VIT Chennai working on distributed systems and applied AI. Previously a software engineering intern at NatWest Group.',
