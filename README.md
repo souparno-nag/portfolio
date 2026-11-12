@@ -10,7 +10,7 @@ Live: https://souparno-nag.netlify.app
 | --- | --- |
 | Framework | SvelteKit 2 (Svelte 5 runes) |
 | Output | `@sveltejs/adapter-static` — every route prerendered, no server |
-| Styling | Tailwind CSS v4, themed with the Organic design tokens |
+| Styling | Plain CSS: shared tokens and pieces in `src/app.css`, the rest scoped per component |
 | Hosting | Netlify, auto-deploy from `main` |
 | Contact form | Netlify Forms |
 
@@ -28,33 +28,45 @@ npm run check     # svelte-check + TypeScript
 
 All copy lives in `src/lib/data/` — nothing is hardcoded in markup:
 
-- `site.ts` — name, tagline, intro, email, phone, CV path, social links, canonical URL
-- `skills.ts` — the six skill groups and their tag colour tone
-- `experience.ts` — roles, dates, bullet points
+- `site.ts` — name, tagline, intro, availability stamp, subjects, email, phone, CV path,
+  social links, canonical URL
+- `skills.ts` — the six skill groups; `tone` picks the card colour
+- `experience.ts` — employer, position, dates, bullet points
 - `projects.ts` — the project cards; add `repo` to get a "View on GitHub" link
-- `achievements.ts` — the sage panel near the bottom
+- `achievements.ts` — the publication, rank and degree cards
 
-Adding a project is one object in `projects.ts`. To swap the CV, replace
-`static/Souparno-Nag-CV.pdf` (keep the filename, or update `site.cv`).
+Adding a project is one object in `projects.ts`. Give it a `callNumber`: the Dewey
+Decimal class for its subject (004.36 is distributed processing, 332.7 is credit,
+and so on). To swap the CV, replace `static/Souparno-Nag-CV.pdf` (keep the
+filename, or update `site.cv`).
 
-## The design system
+## The design
 
-The look comes from the exported **Organic** design system: a cream ground with a
-terracotta accent and a sage second accent, Caprasimo headings over Figtree.
+The site is a library card index. The page is a green desk; every piece of
+content is a catalogue card in coloured card stock, grouped under manila tab
+dividers and sitting slightly askew. Cards are typed in Courier Prime, with Zilla
+Slab for the printed parts.
 
-Rather than eyeballing utility classes, its tokens are declared in the Tailwind
-theme in `src/app.css`, so the generated utilities resolve to the design's own
-values:
+It follows catalogue conventions where they fit: a call number on each project,
+the name filed surname first, technologies listed as numbered subject tracings,
+and the contact form as a request slip.
 
-- `--color-accent-100…900` (terracotta) and `--color-accent2-100…900` (sage — the
-  design system calls this role `accent-2`), plus a neutral ramp
-- `--spacing: 4.4px`, which reproduces the system's 1.10× density scale, so `p-3`
-  is exactly its `--space-3` (13.2px)
-- `--radius-sm/md/lg` at 8/16/28px, plus `--radius-tag` (12px) and
-  `--radius-panel` (56px) for the two derived radii the design uses
-- `--shadow-sm/md/lg`, tuned for the warm ground
-
+`src/app.css` holds the tokens (desk, ink, card stock, fonts) and the pieces every
+section shares: `.btn`, `.card`, the ruled card body `.ru`, `.tabrow` and `.grid`.
+`Card.svelte` and `Section.svelte` wrap those so a section is mostly content.
 Change a token there and the whole site follows.
+
+Card text is set on a fixed line height (`--lh`) so it sits on the ruled lines. If
+you change the card font size, change `--lh` with it.
+
+## The terminal
+
+The Terminal button in the nav, or the backtick key, opens a small terminal;
+Escape closes it. It is an extra way to read the site, not a replacement for it.
+
+Its commands live in `src/lib/components/Terminal.svelte` and read from the same
+files in `src/lib/data/`, so they never go out of date. To add a command, add a
+function to `commands` and a line to `help`.
 
 ## Deploying
 
