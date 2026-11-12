@@ -17,7 +17,6 @@ export const site = {
 	jobTitle: 'Software Engineer',
 	url: 'https://souparno-nag.netlify.app',
 	email: 'souparnonag2004@gmail.com',
-	phone: { display: '+91 82402 04932', href: '+918240204932' },
 	cv: '/Souparno-Nag-CV.pdf',
 	links: {
 		github: 'https://github.com/souparno-nag',
