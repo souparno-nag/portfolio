@@ -57,8 +57,7 @@
 				text: `${role.position}, ${role.org}`
 			})),
 		achievements: () => achievements.map((item) => ({ key: `${item.label}: `, text: item.title })),
-		contact: () =>
-			text(site.email, site.phone.display, site.links.github, site.links.linkedin),
+		contact: () => text(site.email, site.links.github, site.links.linkedin),
 		cv: () => {
 			window.open(site.cv, '_blank', 'noopener');
 			return text('Opening the CV in a new tab.');

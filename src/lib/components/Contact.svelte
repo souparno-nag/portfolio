@@ -10,7 +10,6 @@
 			<h3>Open to SDE and AI/ML engineering roles.</h3>
 			<p>Fastest way to reach me is email. The CV has the full project and skills list.</p>
 			<p class="gap"><a class="strong" href="mailto:{site.email}">{site.email}</a></p>
-			<p><a class="strong" href="tel:{site.phone.href}">{site.phone.display}</a></p>
 			<p class="gap">
 				<a href={site.links.github} target="_blank" rel="noopener">GitHub</a>.
 				<a href={site.links.linkedin} target="_blank" rel="noopener">LinkedIn</a>.

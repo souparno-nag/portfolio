@@ -28,8 +28,8 @@ npm run check     # svelte-check + TypeScript
 
 All copy lives in `src/lib/data/` — nothing is hardcoded in markup:
 
-- `site.ts` — name, tagline, intro, availability stamp, subjects, email, phone, CV path,
-  social links, canonical URL
+- `site.ts` — name, tagline, intro, availability stamp, subjects, email, CV path, social
+  links, canonical URL
 - `skills.ts` — the six skill groups; `tone` picks the card colour
 - `experience.ts` — employer, position, dates, bullet points
 - `projects.ts` — the project cards; add `repo` to get a "View on GitHub" link
