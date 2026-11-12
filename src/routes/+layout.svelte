@@ -8,7 +8,8 @@
 
 <Nav />
 
-<div class="mx-auto max-w-[1180px] px-[var(--edge)]">
+<main class="wrap">
 	{@render children()}
-	<Footer />
-</div>
+</main>
+
+<Footer />
