@@ -246,7 +246,6 @@
 		padding: 14px 18px 6px;
 		overflow-y: auto;
 		overflow-wrap: anywhere;
-		white-space: pre-wrap;
 		line-height: 1.45;
 		scrollbar-color: var(--desk-hi) transparent;
 		scrollbar-width: thin;
@@ -256,9 +255,10 @@
 		margin-bottom: 1.45em;
 	}
 
-	/* Keeps an empty row as a blank line. */
+	/* Rows keep their column padding, and an empty row stays a blank line. */
 	.entry div {
 		min-height: 1.45em;
+		white-space: pre-wrap;
 	}
 
 	.typed {
