@@ -10,18 +10,42 @@
 	];
 </script>
 
-<footer
-	class="flex flex-wrap items-center gap-4 border-t border-[var(--divider)] pb-[calc(2*var(--leading))] pt-[var(--leading)] text-[14px] text-ink/70"
->
-	<span class="mr-auto">© {new Date().getFullYear()} {site.name}</span>
-	{#each links as link (link.label)}
-		<a
-			href={link.href}
-			target={link.external ? '_blank' : undefined}
-			rel={link.external ? 'noopener' : undefined}
-			class="text-accent-700 underline-offset-[3px] hover:text-accent"
-		>
-			{link.label}
-		</a>
-	{/each}
+<footer class="wrap">
+	<div class="row">
+		<span>© {new Date().getFullYear()} {site.name}</span>
+		{#each links as link (link.label)}
+			<a
+				href={link.href}
+				target={link.external ? '_blank' : undefined}
+				rel={link.external ? 'noopener' : undefined}
+			>
+				{link.label}
+			</a>
+		{/each}
+	</div>
 </footer>
+
+<style>
+	footer {
+		margin-top: 72px;
+		padding-bottom: 72px;
+	}
+
+	.row {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px 24px;
+		padding-top: 18px;
+		border-top: 1px dashed var(--desk-dim);
+		color: var(--desk-dim);
+		font-size: 0.9rem;
+	}
+
+	span {
+		margin-right: auto;
+	}
+
+	a:hover {
+		color: var(--desk-fg);
+	}
+</style>

@@ -1,27 +1,18 @@
 <script lang="ts">
-	import { reveal } from '$lib/actions/reveal';
 	import { achievements } from '$lib/data/achievements';
-	import SectionLabel from './SectionLabel.svelte';
+	import Card from './Card.svelte';
+	import Section from './Section.svelte';
+
+	const stock = ['salmon', 'buff', 'sky'] as const;
 </script>
 
-<section
-	use:reveal
-	class="pb-[calc(2*var(--leading))] pt-[calc(1.5*var(--leading))] transition-[opacity,transform] duration-700 ease-out"
->
-	<div
-		class="rounded-panel bg-accent2-100 px-[clamp(24px,4vw,60px)] py-[clamp(28px,3.5vw,52px)]"
-	>
-		<SectionLabel tone="accent2" class="mb-[var(--leading)]">Achievements &amp; education</SectionLabel>
-
-		<div
-			class="grid gap-x-[clamp(28px,4vw,64px)] gap-y-[var(--leading)] [grid-template-columns:repeat(auto-fit,minmax(260px,1fr))]"
-		>
-			{#each achievements as item (item.title)}
-				<div>
-					<h3 class="mb-2 font-heading text-[20px] leading-[1.25]">{item.title}</h3>
-					<p class="m-0 text-[14.5px] leading-[1.6] text-ink/78">{item.body}</p>
-				</div>
-			{/each}
-		</div>
+<Section id="achievements" title="Achievements and education">
+	<div class="grid">
+		{#each achievements as item, i (item.title)}
+			<Card stock={stock[i % stock.length]} label={item.label}>
+				<h3>{item.title}.</h3>
+				<p>{item.body}</p>
+			</Card>
+		{/each}
 	</div>
-</section>
+</Section>

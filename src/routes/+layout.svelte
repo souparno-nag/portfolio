@@ -2,13 +2,17 @@
 	import '../app.css';
 	import Footer from '$lib/components/Footer.svelte';
 	import Nav from '$lib/components/Nav.svelte';
+	import Terminal from '$lib/components/Terminal.svelte';
 
 	let { children } = $props();
 </script>
 
 <Nav />
 
-<div class="mx-auto max-w-[1180px] px-[var(--edge)]">
+<main class="wrap">
 	{@render children()}
-	<Footer />
-</div>
+</main>
+
+<Footer />
+
+<Terminal />

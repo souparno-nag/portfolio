@@ -1,12 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-	<rect width="64" height="64" rx="18" fill="#c67139" />
-	<text
-		x="32"
-		y="45"
-		text-anchor="middle"
-		font-family="Georgia, serif"
-		font-size="38"
-		font-weight="700"
-		fill="#f5ead8"
-	>S</text>
+	<rect width="64" height="64" rx="12" fill="#24493f" />
+	<g transform="rotate(-6 32 32)">
+		<rect x="10" y="15" width="44" height="34" fill="#f2e3b8" />
+		<rect x="10" y="25" width="44" height="2" fill="#c8463c" />
+		<rect x="15" y="32" width="26" height="3" fill="#2b2620" />
+		<rect x="15" y="38" width="18" height="3" fill="#2b2620" />
+		<circle cx="32" cy="45" r="2.2" fill="#24493f" />
+	</g>
 </svg>

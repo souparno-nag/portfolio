@@ -1,44 +1,22 @@
 <script lang="ts">
-	import { reveal } from '$lib/actions/reveal';
 	import { site } from '$lib/data/site';
-	import Button from './Button.svelte';
-
-	const field =
-		'w-full rounded-md border border-[var(--divider)] bg-bg px-2.5 py-1.5 text-[14px] text-ink caret-accent hover:border-ink/45 focus-visible:border-accent focus-visible:outline-offset-0';
+	import Card from './Card.svelte';
+	import Section from './Section.svelte';
 </script>
 
-<section
-	id="contact"
-	use:reveal
-	class="pb-[calc(2*var(--leading))] transition-[opacity,transform] duration-700 ease-out"
->
-	<div
-		class="grid items-start gap-x-[clamp(28px,5vw,80px)] gap-y-[var(--leading)] [grid-template-columns:repeat(auto-fit,minmax(300px,1fr))]"
-	>
-		<div>
-			<h2 class="mb-3 font-heading text-[clamp(28px,3.4vw,38px)] leading-[1.15]">
-				Open to SDE and AI/ML engineering roles.
-			</h2>
-			<p class="mb-[var(--leading)] max-w-[44ch] text-[16px] leading-[var(--leading)] text-ink/80">
-				Fastest way to reach me is email. The CV has the full project and skills list.
+<Section id="contact" title="Contact">
+	<div class="grid two">
+		<Card stock="salmon" label="See also" note="Correspondence">
+			<h3>Open to SDE and AI/ML engineering roles.</h3>
+			<p>Fastest way to reach me is email. The CV has the full project and skills list.</p>
+			<p class="gap"><a class="strong" href="mailto:{site.email}">{site.email}</a></p>
+			<p><a class="strong" href="tel:{site.phone.href}">{site.phone.display}</a></p>
+			<p class="gap">
+				<a href={site.links.github} target="_blank" rel="noopener">GitHub</a>.
+				<a href={site.links.linkedin} target="_blank" rel="noopener">LinkedIn</a>.
+				<a href={site.links.leetcode} target="_blank" rel="noopener">LeetCode</a>.
 			</p>
-			<div class="grid gap-2.5 text-[16px] leading-[1.5]">
-				<a href="mailto:{site.email}" class="text-accent-700 underline-offset-[3px] hover:text-accent">
-					{site.email}
-				</a>
-				<a
-					href="tel:{site.phone.href}"
-					class="text-accent-700 underline-offset-[3px] hover:text-accent"
-				>
-					{site.phone.display}
-				</a>
-			</div>
-			<div class="mt-[var(--leading)] flex flex-wrap gap-2">
-				<Button href={site.links.github} size="sm" target="_blank" rel="noopener">GitHub</Button>
-				<Button href={site.links.linkedin} size="sm" target="_blank" rel="noopener">LinkedIn</Button>
-				<Button href={site.links.leetcode} size="sm" target="_blank" rel="noopener">LeetCode</Button>
-			</div>
-		</div>
+		</Card>
 
 		<!--
 			Netlify Forms: the attributes below are read from the prerendered HTML at
@@ -46,49 +24,134 @@
 			to Netlify, which then redirects to /thanks.
 		-->
 		<form
+			class="slip on-paper"
 			name="contact"
 			method="POST"
 			action="/thanks/"
 			data-netlify="true"
 			data-netlify-honeypot="bot-field"
-			class="grid gap-3 rounded-panel bg-accent-100 p-[clamp(24px,3vw,40px)]"
 		>
 			<input type="hidden" name="form-name" value="contact" />
-			<p class="hidden">
+			<p hidden>
 				<label>
 					Leave this field empty if you are human: <input name="bot-field" tabindex="-1" />
 				</label>
 			</p>
 
-			<div>
-				<label for="c-name" class="mb-[5px] block text-[12px] text-ink/70">Name</label>
-				<input id="c-name" name="name" type="text" required placeholder="Your name" class={field} />
-			</div>
+			<h3>Request slip <span>Please print</span></h3>
 
-			<div>
-				<label for="c-email" class="mb-[5px] block text-[12px] text-ink/70">Email</label>
-				<input
-					id="c-email"
-					name="email"
-					type="email"
-					required
-					placeholder="you@company.com"
-					class={field}
-				/>
-			</div>
+			<label for="c-name">
+				Name
+				<input id="c-name" name="name" type="text" required placeholder="Your name" />
+			</label>
 
-			<div>
-				<label for="c-msg" class="mb-[5px] block text-[12px] text-ink/70">Message</label>
-				<textarea
-					id="c-msg"
-					name="message"
-					required
-					placeholder="The role, the team, the stack"
-					class="{field} min-h-24 resize-y rounded-lg"
+			<label for="c-email">
+				Email
+				<input id="c-email" name="email" type="email" required placeholder="you@company.com" />
+			</label>
+
+			<label for="c-msg">
+				Message
+				<textarea id="c-msg" name="message" required placeholder="The role, the team, the stack"
 				></textarea>
-			</div>
+			</label>
 
-			<Button type="submit" variant="primary" class="justify-self-start">Send message</Button>
+			<button type="submit">Send message</button>
 		</form>
 	</div>
-</section>
+</Section>
+
+<style>
+	.strong {
+		font-weight: 700;
+	}
+
+	/* The form is a library request slip: a paler paper than the cards, a
+	   printed heading, and fields you fill in on dashed lines. */
+	.slip {
+		display: grid;
+		gap: 1.1rem;
+		min-width: 0;
+		padding: 1.4rem 1.6rem 1.6rem;
+		background: var(--slip);
+		color: var(--ink);
+		box-shadow:
+			0 10px 18px -8px var(--shadow),
+			0 2px 3px var(--shadow);
+		rotate: 0.5deg;
+	}
+
+	.slip h3 {
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
+		gap: 12px;
+		padding-bottom: 0.4rem;
+		border-bottom: 2px solid var(--ink);
+		font-family: var(--slab);
+		font-size: 1.3rem;
+		font-weight: 700;
+	}
+
+	.slip h3 span {
+		color: var(--ink-dim);
+		font-family: var(--type);
+		font-size: 0.85rem;
+		font-weight: 400;
+	}
+
+	label {
+		display: grid;
+		gap: 2px;
+		color: var(--ink-dim);
+		font-size: 0.85rem;
+	}
+
+	input,
+	textarea {
+		width: 100%;
+		padding: 4px 0;
+		border: 0;
+		border-bottom: 1px dashed var(--ink-dim);
+		border-radius: 0;
+		background: none;
+		color: var(--ink);
+		font: inherit;
+		font-size: 1rem;
+	}
+
+	input::placeholder,
+	textarea::placeholder {
+		color: var(--ink-dim);
+		opacity: 0.75;
+	}
+
+	/* The message area is ruled like the cards. */
+	textarea {
+		min-height: calc(4 * var(--lh));
+		resize: vertical;
+		line-height: var(--lh);
+		border-bottom-style: solid;
+		background-image: linear-gradient(to bottom, transparent calc(100% - 1px), var(--line) 0);
+		background-size: 100% var(--lh);
+	}
+
+	input:focus-visible,
+	textarea:focus-visible {
+		outline: none;
+		border-bottom: 2px solid var(--rule);
+	}
+
+	button {
+		justify-self: start;
+		padding: 8px 18px;
+		border: 0;
+		background: var(--ink);
+		color: var(--slip);
+		font-weight: 700;
+	}
+
+	button:hover {
+		background: var(--rule);
+	}
+</style>
