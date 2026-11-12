@@ -37,7 +37,7 @@
 		projects: () =>
 			projects.map((project, i) => ({
 				key: String(i + 1).padStart(2) + '  ',
-				text: `${project.callNumber.padEnd(10)}${project.title}`
+				text: `${project.callNumber.padEnd(14)}${project.title}`
 			})),
 		open: (arg) => {
 			const project = projects[Number(arg) - 1];

@@ -37,7 +37,7 @@ All copy lives in `src/lib/data/` — nothing is hardcoded in markup:
 
 Adding a project is one object in `projects.ts`. Give it a `callNumber`: the Dewey
 Decimal class for its subject (004.36 is distributed processing, 332.7 is credit,
-and so on). To swap the CV, replace `static/Souparno-Nag-CV.pdf` (keep the
+and so on), then three letters from the title, as in `004.36 DIS`. To swap the CV, replace `static/Souparno-Nag-CV.pdf` (keep the
 filename, or update `site.cv`).
 
 ## The design
